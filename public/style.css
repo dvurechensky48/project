@@ -1,0 +1,121 @@
+   body {
+    font: 10pt Arial, Helvetica, sans-serif; /* Шрифт на веб-странице */
+    background: #e1dfb9; /* Цвет фона */
+   }
+   h2 {
+    font-size: 1.1em; /* Размер шрифта */
+    color: #800040; /* Цвет текста */
+    margin-top: 0; /* Отступ сверху */
+   }
+   a{
+    text-decoration: none;
+   }
+   a:hover{
+    text-decoration: underline;
+   }
+   #container {
+    width: 900px; /* Ширина слоя */
+    margin: 0 auto; /* Выравнивание по центру */
+    background: #f0f0f0; /* Цвет фона левой колонки */
+   }
+   #header {
+    font-size: 2.2em; /* Размер текста */
+    text-align: center; /* Выравнивание по центру */
+    padding: 5px; /* Отступы вокруг текста */
+    background: #8fa09b; /* Цвет фона шапки */
+    color: #ffe; /* Цвет текста */
+   }
+   #sidebar {
+    margin-top: 10px; 
+    width: 110px; /* Ширина слоя */
+    padding: 0 10px; /* Отступы вокруг текста */
+    float: left; /* Обтекание по правому краю */
+   }
+   #sidebar > ul{
+    width:100%;
+    margin:0;
+    padding:0;
+   }
+   #sidebar > ul > li{
+    padding-bottom:20px;
+    list-style-type: none;
+   } 
+   #content {
+    margin-left: 130px; /* Отступ слева */
+    padding: 10px; /* Поля вокруг текста */
+    background: #fff; /* Цвет фона правой колонки */
+   }
+   #content > form > input{
+    width:80%;
+    height:25px;
+    display: block;
+    text-align:center;
+    margin:10px 10%;
+    appearance: none;
+   }
+   #content > form > textarea{
+    width:80%;
+    height:80px;
+    display: block;
+    text-align:center;
+    margin:10px 10%;
+    appearance: none;
+    resize:vertical;
+   }
+   #content > form > input:last-child{
+    width:20%;
+    height:25px;
+    display: block;
+    text-align:center;
+    margin:10px 40%;
+    cursor:pointer; 
+   }
+   input::-webkit-inner-spin-button,
+   input::-webkit-outer-spin-button {
+    -webkit-appearance: none; margin: 0px;
+        }
+    input[type='number'] {
+    -moz-appearance: textfield;
+    }    
+   .application{
+    width:auto;
+    padding:20px;
+    overflow:hidden;
+    box-shadow:0px 0px 0px 0.5px #b7b7b7 inset;
+   }
+   .application_left{
+    position: relative;
+    width:25%;
+    float:left;
+   }
+   .application_left > img{
+    position: absolute;
+    width:100%;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+   }
+   .application_right{
+    width:75%;
+    float:left;
+   }
+   .application_right > h3{
+    text-align:center;
+    padding:10px;
+   }
+   .application_right > .phone{
+    text-align:left;
+    padding:10px;
+   }
+   .application_right > .application_text{
+    text-align:justify;
+    padding:10px;
+   }
+   #footer {
+    background: #8fa09b; /* Цвет фона подвала */
+    color: #fff; /* Цвет текста */
+    padding: 5px; /* Отступы вокруг текста */
+    clear: left; /* Отменяем действие float */
+   }
