@@ -13,13 +13,22 @@ class Dbase extends Setting
 			$res = mysqli_query($mysqli, $sql);
 			
 
-			while($row = mysqli_fetch_object($res))
+			while($row = mysqli_fetch_array($res))
 			{
 				$arr_result[] = $row;
 			}
-			$_POST['arr_result'] = $arr_result;
-			mysqli_close($mysqli);   
 			
+			mysqli_close($mysqli);   
+			if(!isset($arr_result))
+			{
+				$arr_result[0]['id_request'] = 'Заявки отсутвуют';
+				$arr_result[0]['client_phone'] = 'Заявки отсутвуют';
+				$arr_result[0]['client_name'] = 'Заявки отсутвуют';
+				$arr_result[0]['application_name'] = 'Заявки отсутвуют';
+				$arr_result[0]['application_text'] = 'Заявки отсутвуют';
+				$arr_result[0]['id_photo'] = 'no';
+			}
+			return $arr_result;
 
 		}
 
@@ -70,6 +79,19 @@ class Dbase extends Setting
 				$phone = mysqli_real_escape_string($mysqli, intval(trim($_POST['phone'])));
 				$caption = mysqli_real_escape_string($mysqli, trim($_POST['caption']));
 				$description = mysqli_real_escape_string($mysqli, trim($_POST['description']));
+
+
+				$name = strip_tags($name);
+				$name = htmlspecialchars($name);
+
+				$phone = strip_tags($phone);
+				$phone = htmlspecialchars($phone);
+
+				$caption = strip_tags($caption);
+				$caption = htmlspecialchars($caption);
+
+				$description = strip_tags($description);
+				$description = htmlspecialchars($description);
 				
 				if (mysqli_connect_errno($mysqli)) 
 				{
@@ -144,11 +166,17 @@ class Dbase extends Setting
 				{
 					copy("./img/no.png", "./img/".$image_name.".png");
 				}
-			}	
+
+				echo('вернуться назад <a href = "/">Ссылка</a>');
+			}
+
+
 
 			else
 			{
-				echo('Вы не заполнили формы');
+				echo('Вы не заполнили формы или колличество символов в заголовке меньше 10');
+				echo('<br>');
+				echo('вернуться назад <a href = "/">Ссылка</a>');
 			}
 
 			
