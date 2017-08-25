@@ -119,3 +119,16 @@
     padding: 5px; /* Отступы вокруг текста */
     clear: left; /* Отменяем действие float */
    }
+   #auth {
+    margin:20% 0;
+    text-align: center;
+   }
+   #auth > input{
+    display:block;
+    width:300px;
+    height:25px;
+    margin:15px auto;
+   }
+   #auth > input:last-child{
+    width:100px;
+   }

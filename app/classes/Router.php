@@ -19,8 +19,6 @@ class Router
 		}
 
 		if ($page == 'index') {
-			
-
 			$template = new Template();
 			$template->header();
 			$template->content_main_page();
@@ -39,14 +37,25 @@ class Router
 			$dbase->db_export_xml();
 			
 		}
-
-		else if($page == 'insertDb'){
+		else if($page == 'insertDb')
+		{
 			$dbase = new Dbase();
 			$dbase->db_insert();
 		}
-
-
-		else header("HTTP/1.0 404 Not Found");
+		else if($page == 'editDb')
+		{
+			$dbase = new Dbase();
+			$dbase->db_edit();
+		}
+		else if($page == 'admin')
+		{	
+			$admin = new Admin();
+			$admin->auth();
+		}
+		else
+		{
+			header("HTTP/1.0 404 Not Found");
+		} 
 	}
 }
 

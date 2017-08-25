@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Хост: 10.100.18.66:3306
--- Время создания: Авг 18 2017 г., 15:20
+-- Время создания: Авг 25 2017 г., 13:27
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.3.3
 
@@ -23,6 +23,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(150) NOT NULL,
+  `pass` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `admin`
+--
+
+INSERT INTO `admin` (`id`, `login`, `pass`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `client`
 --
 
@@ -31,14 +51,17 @@ CREATE TABLE IF NOT EXISTS `client` (
   `client_name` varchar(100) NOT NULL,
   `client_phone` varchar(20) NOT NULL,
   PRIMARY KEY (`id_client`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=80 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=83 ;
 
 --
 -- Дамп данных таблицы `client`
 --
 
 INSERT INTO `client` (`id_client`, `client_name`, `client_phone`) VALUES
-(79, 'Никита', '79513033355');
+(79, 'Никита', '79513033355'),
+(80, 'Василий', '79996665544'),
+(81, 'Анна', '13124124'),
+(82, 'Василий', '454545');
 
 -- --------------------------------------------------------
 
@@ -50,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `photo` (
   `id_photo` int(11) NOT NULL AUTO_INCREMENT,
   `id_request` int(11) NOT NULL,
   PRIMARY KEY (`id_photo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=82 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=85 ;
 
 --
 -- Дамп данных таблицы `photo`
@@ -71,14 +94,14 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `application_name` varchar(1000) CHARACTER SET utf8 NOT NULL,
   `application_text` text CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id_request`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=90 ;
 
 --
 -- Дамп данных таблицы `requests`
 --
 
 INSERT INTO `requests` (`id_request`, `id_client`, `application_name`, `application_text`) VALUES
-(86, 79, 'Сломался телефон', 'У меня сломался телефон, нужна Ваша помощь!');
+(86, 79, 'Сломался телефон', 'У меня сломался телефон');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

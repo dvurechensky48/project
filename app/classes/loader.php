@@ -2,30 +2,18 @@
 
 class Loader 
 {
-	public function loadClass($class_name)
+	public function loadClass($className)
 	{
-		if($class_name == 'Router')
-		{
-			$file = '../app/classes/router.php';
-		} 
-		else if($class_name == 'Template')
-		{
-			$file = '../app/classes/template.php';
+		$className = ltrim($className, '\\');
+		$fileName  = '';
+		$namespace = '';
+		if ($lastNsPos = strrpos($className, '\\')) {
+			$namespace = substr($className, 0, $lastNsPos);
+			$className = substr($className, $lastNsPos + 1);
+			$fileName  = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
 		}
-		else if($class_name == 'Dbase')
-		{
-			$file = '../app/classes/dbase.php';
-		}
-		else if($class_name == 'Setting')
-		{
-			$file = '../app/classes/setting.php';
-		}
-			
+		$fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 		
-
-		if(is_file($file))
-		{
-			require_once $file;
-		}
+		require $fileName;
 	}
 }
